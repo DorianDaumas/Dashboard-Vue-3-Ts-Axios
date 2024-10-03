@@ -41,7 +41,13 @@ Il offre une interface utilisateur intuitive et réactive pour la gestion de div
    ```
    
 ## Lancement de l'application
-Pour lancer l'application en mode développement : npm run dev
+Pour lancer l'application en mode développement :
+```
+npm run dev
+```
 
 ## Test unitaires
-Pour lancer l'application en mode développement : npm run test:unit
+Pour lancer l'application en mode développement : 
+```
+npm run test:unit
+```
