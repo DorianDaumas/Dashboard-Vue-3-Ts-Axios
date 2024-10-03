@@ -11,7 +11,7 @@ Il offre une interface utilisateur intuitive et réactive pour la gestion de div
       - E-commerce
       - Gestion d'utilsateurs
       - Rôles et permission
-      - Donnés globals 
+      - Données globales 
 - Interface utilisateur responsive avec Vuetify
 - Gestion d'état globale avec Pinia
 - Tests unitaires pour assurer la fiabilité du code
