@@ -136,7 +136,7 @@
             </v-card-text>
 
             <br />
-            <AddCart :productDetail="productDetail"></AddCart>
+            <AddCart v-if="authStore.isLogged" :productDetail="productDetail"></AddCart>
           </v-card>
         </v-col>
       </v-row>
@@ -283,8 +283,9 @@ import { defineProps } from 'vue'
 import { useThemeStore } from '@/stores/App'
 import type { ProductType } from './productType'
 import AddCart from '@/components/Carts/AddCart.vue'
+import { useAuthenticationStore } from '@/stores/Auth'
 const store = useThemeStore()
-
+const authStore = useAuthenticationStore()
 const { productDetail } = defineProps<ProductType>()
 const carousel = ref('')
 const tab = ref(null)
