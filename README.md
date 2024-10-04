@@ -1,4 +1,5 @@
 # Dashboard Vue 3 + TypeScript + axios fake api (https://dummyjson.com/docs)
+( *** EN COURS DE PROGRESSION *** )
 
 ## Description
 Ce projet est un FAKE dashboard développé avec Vue 3 et TypeScript avec un fort typage des data (ref, props, api etc.. ) et une architecture lisible. 
@@ -12,7 +13,7 @@ Il offre une interface utilisateur intuitive et réactive pour la gestion de div
       - Gestion d'utilsateurs
       - Rôles et permission
       - Données globales 
-- Interface utilisateur responsive avec Vuetify
+- * Interface utilisateur responsive avec Vuetify *
 - Gestion d'état globale avec Pinia
 - Tests unitaires pour assurer la fiabilité du code
 
