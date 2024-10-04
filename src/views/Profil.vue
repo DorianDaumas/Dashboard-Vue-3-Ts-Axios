@@ -41,14 +41,20 @@
         </v-container>
 
         <v-container fluid>
-          <h1 class="title">Mes produits</h1>
+          <h1 class="title">Mes produits récement achetés</h1>
           <br />
           <v-row>
             <UserProducts
               v-if="userProduct.userProduct.id !== 0"
               :userProduct="userProduct.userProduct"
             ></UserProducts>
-            <v-progress-circular v-else size="50" :value="20"></v-progress-circular>
+            <v-progress-circular
+              v-else
+              size="50"
+              :value="20"
+              color="#42b883"
+              indeterminate
+            ></v-progress-circular>
           </v-row>
         </v-container>
       </v-card-text>

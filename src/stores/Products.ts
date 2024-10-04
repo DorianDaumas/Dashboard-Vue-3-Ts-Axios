@@ -82,6 +82,7 @@ export const useProductsStore = defineStore('products', () => {
     try {
       const { status, data } = await fetchUserProductApi(userId)
       if (status === 200) {
+        console.log(data)
         userProducts.value.userProduct.products = data.carts[0].products
         userProducts.value.userProduct.id = data.carts[0].id
         userProducts.value.userProduct.total = data.carts[0].total
