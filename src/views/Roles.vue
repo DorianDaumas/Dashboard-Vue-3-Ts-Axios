@@ -7,6 +7,7 @@
       :items-per-page="itemPerPage"
       :items-length="users.total"
       disable-sort
+      hide-default-footer
       :search="search"
     >
       <template v-slot:[`item.image`]="{ value }">
