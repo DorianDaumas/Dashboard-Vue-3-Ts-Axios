@@ -19,9 +19,9 @@
                     <tbody>
                       <tr class="header-table-cart">
                         <th style="text-align: center">PRODUIT</th>
-                        <th></th>
-                        <th style="width: 150px">PRIX</th>
-                        <th style="width: 250px">QUANTITé</th>
+                        <th style="min-width: 300px"></th>
+                        <th style="min-width: 200px">PRIX</th>
+                        <th style="min-width: 200px; text-align: center">QUANTITé</th>
                         <th>TOtal</th>
                       </tr>
                       <tr v-for="item in cartNewSet" :key="item!.id">
@@ -41,7 +41,7 @@
                           {{ item!.title }}<br />
                           {{ item!.description }}
                         </td>
-                        <td>
+                        <td style="width: 150px">
                           {{ priceFormat(item!.price) }}
                           €
                         </td>
@@ -206,7 +206,8 @@
     <div v-else class="container-alert">
       <v-alert two-line type="info" variant="tonal">
         <span
-          >Votre panier est vide 😢. Vous pouvez choisirs des articles dans la section
+          >Votre panier est vide 😢.<br /><br />
+          Vous pouvez choisirs des articles dans la section
           <router-link style="color: #1c9558" color="green" to="/Ecommerce">
             E-commerce</router-link
           >

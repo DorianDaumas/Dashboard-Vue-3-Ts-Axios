@@ -1,26 +1,23 @@
 <template>
-  <v-card
-    height="150px"
-    :class="store.theme ? 'theme-off mx-auto' : 'theme-on mx-auto'"
-    color="#27293d"
-    hover
-  >
+  <v-card :class="store.theme ? 'theme-off mx-auto' : 'theme-on mx-auto'" color="#27293d" hover>
     <v-card-item>
-      <v-row no-gutters>
-        <v-col md="5" style="margin-top: 5px">
-          <v-card-title>
-            <v-icon
-              class="icon-card"
-              :style="`background: ${card.icon.color}`"
-              :icon="card.icon.name"
-            />
-          </v-card-title>
-        </v-col>
-        <v-col md="7" align="right">
-          <v-card-subtitle class="subtitle">{{ card.subTitle1 }}</v-card-subtitle>
-          <v-card-subtitle class="subtitle2">{{ card.subTitle2 }}</v-card-subtitle>
-        </v-col>
-      </v-row>
+      <v-container fluid>
+        <v-row no-gutters>
+          <v-col cols="6" xl="3" sm="6" md="4" lg="4" style="margin-top: 5px">
+            <v-card-title>
+              <v-icon
+                class="icon-card"
+                :style="`background: ${card.icon.color}`"
+                :icon="card.icon.name"
+              />
+            </v-card-title>
+          </v-col>
+          <v-col cols="6" xl="3" sm="6" md="4" lg="4" align="right">
+            <v-card-subtitle class="subtitle">{{ card.subTitle1 }}</v-card-subtitle>
+            <v-card-subtitle class="subtitle2">{{ card.subTitle2 }}</v-card-subtitle>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-card-item>
 
     <v-divider></v-divider>
