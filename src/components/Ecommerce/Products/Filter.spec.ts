@@ -73,7 +73,35 @@ describe('Filters.vue', () => {
     expect(wrapper.vm.categories).toEqual(mockCategories)
   })
 
+  it('bascule expandFilters lors du clic sur le titre de la carte', async () => {
+    // Vérifier que expandFilters est initialement faux
+    expect(wrapper.vm.expandFilters).toBe(false)
+
+    // Trouver et cliquer sur le titre de la carte
+    const cardTitle = wrapper.find('.v-card-title')
+    await cardTitle.trigger('click')
+
+    // Vérifier que expandFilters est maintenant vrai
+    expect(wrapper.vm.expandFilters).toBe(true)
+
+    // Vérifier que la carte de filtres est visible
+    const filterCard = wrapper.find('.v-card[style*="margin-top: 3px"]')
+    expect(filterCard.exists()).toBe(true)
+
+    // Cliquer à nouveau sur le titre de la carte
+    await cardTitle.trigger('click')
+
+    // Vérifier que expandFilters est de nouveau faux
+    expect(wrapper.vm.expandFilters).toBe(false)
+
+    // Vérifier que la carte de filtres n'est plus visible
+    await wrapper.vm.$nextTick() // Attendre la mise à jour du DOM
+    expect(wrapper.find('.v-card[style*="margin-top: 3px"]').exists()).toBe(false)
+  })
+
   it("change la catégorie et émet l'événement correspondant", async () => {
+    wrapper.vm.expandFilters = true
+    await wrapper.vm.$nextTick()
     wrapper.vm.categories = mockCategories
 
     const expandButton = wrapper.find('[aria-label="test-expand"]')
@@ -92,6 +120,8 @@ describe('Filters.vue', () => {
         slug: `category-${i + 1}`
       }))
     }
+    wrapper.vm.expandFilters = true
+    await wrapper.vm.$nextTick()
     wrapper.vm.categories = mockCategories
 
     const expandButton = wrapper.find('[aria-label="test-expand"]')
@@ -102,7 +132,11 @@ describe('Filters.vue', () => {
   })
 
   it('réinitialise la catégorie lorsque "Tout" est cliqué', async () => {
-    const resetItem = wrapper.find('.v-list-item')
+    wrapper.vm.expandFilters = true
+    await wrapper.vm.$nextTick()
+
+    const resetItem = wrapper.find('[aria-label="test-reset"]')
+
     await resetItem.trigger('click')
 
     expect(wrapper.emitted()).toHaveProperty('category')

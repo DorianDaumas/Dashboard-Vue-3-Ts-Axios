@@ -2,43 +2,45 @@
   <div>
     <v-card :class="store.theme ? 'data-table' : 'theme-on'" elevation="0">
       <v-toolbar
-        height="150px"
+        height="auto"
         :class="store.theme ? 'data-table' : 'theme-on'"
         color="#27293d"
         class="px-2 d-flex align-center justify-space-between"
       >
         <v-container fluid>
-          <v-row no-gutters align="center">
-            <v-col md="4">
+          <v-row no-gutters dense align="center">
+            <v-col :xl="mobile ? '12' : '5'">
               <v-text-field
                 aria-label="test-input"
                 v-model="search"
                 label="Rechercher un produit"
                 prepend-inner-icon="mdi-magnify"
                 variant="outlined"
+                class="flex-grow-1 mr-2"
                 clearable
                 density="compact"
                 @click:clear="search = ''"
                 hide-details
               ></v-text-field>
             </v-col>
-            <v-spacer v-if="!mobile"></v-spacer>
-            <v-col md="4">
-              <div class="d-flex align-center">
-                <v-select
-                  aria-label="test-order"
-                  v-model="selectOrder"
-                  label="Ordre d'affichage"
-                  density="compact"
-                  hide-details
-                  :items="['Prix asc.', 'Prix desc.']"
-                  variant="outlined"
-                ></v-select>
+            <v-col :xl="mobile ? '12' : '5'">
+              <v-select
+                aria-label="test-order"
+                v-model="selectOrder"
+                class="flex-grow-1"
+                label="Ordre d'affichage"
+                density="compact"
+                hide-details
+                :items="['Prix asc.', 'Prix desc.']"
+                variant="outlined"
+              ></v-select>
+            </v-col>
+            <v-col v-if="!mobile" sm="2">
+              <div class="d-flex align-center justify-end">
                 <v-btn-toggle
-                  v-if="!mobile"
+                  height="42"
                   aria-label="test-toggle"
                   :class="store.theme ? 'data-table' : 'theme-on'"
-                  style="margin-left: 40px"
                   v-model="toggle"
                   variant="outlined"
                   divided
@@ -64,9 +66,17 @@
         item-value="title"
       >
         <template v-slot:default>
-          <v-container style="padding: 0">
+          <v-container style="padding: 0" fluid>
             <v-row aria-label="test-container-list-standard" justify="start" v-if="toggle === 0">
-              <v-col v-for="(item, index) in ProductsList.products" :key="index" xl="3">
+              <v-col
+                v-for="(item, index) in ProductsList.products"
+                :key="index"
+                cols="12"
+                xl="3"
+                sm="6"
+                md="4"
+                lg="4"
+              >
                 <v-card hover :class="store.theme ? 'data-table' : 'theme-on'" color="#27293d">
                   <div
                     aria-label="test-push-to-detail-standard"
@@ -112,6 +122,7 @@
                           aria-label="test-price-standard"
                           :class="store.theme ? 'data-table' : 'theme-on'"
                           class="text-h6"
+                          style="width: 100px"
                           >{{
                             Intl.NumberFormat('fr-FR', {
                               style: 'currency',
@@ -148,7 +159,7 @@
                     </v-row>
                   </div>
                   <br />
-                  <div class="d-flex justify-space-evenly align-center">
+                  <div class="d-flex mx-2 justify-space-evenly align-center">
                     <AddCart
                       aria-label="test-addCart-standard"
                       :productDetail="sendDetail(item).item"

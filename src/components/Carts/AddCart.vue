@@ -1,6 +1,6 @@
 <template>
   <div aria-label="test-add-cart">
-    <div v-if="checkExistInCart()">
+    <div v-if="cartItemIds.find((cartItem) => cartItem === productDetail.id)">
       <v-btn
         aria-label="test-remove-cart-with-item"
         @mouseover="hoverMinusEnter(productDetail!.id)"
@@ -96,11 +96,4 @@ const cartItemIds = computed(() => {
   }
   return []
 })
-
-const checkExistInCart = () => {
-  if (cartItemIds.value.find((cartItem) => cartItem === productDetail.id) === undefined) {
-    return false
-  }
-  return true
-}
 </script>

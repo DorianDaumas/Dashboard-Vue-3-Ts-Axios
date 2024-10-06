@@ -467,6 +467,7 @@ const goToRoute = (query: any) => {
 }
 .sidenav-mobile {
   top: 80px !important;
+  height: calc(100% + -80px) !important;
   left: 0px !important;
   border-radius: 0px !important;
 }

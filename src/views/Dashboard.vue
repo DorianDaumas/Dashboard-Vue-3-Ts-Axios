@@ -14,54 +14,57 @@
 
     <v-container :class="store.theme ? 'theme' : ''" fluid>
       <v-row alignContent="center" justify="space-between">
-        <v-col sm="3">
+        <v-col md="3">
           <Card :card="card1" />
         </v-col>
-        <v-col sm="3">
+        <v-col md="3">
           <Card :card="card2" />
         </v-col>
-        <v-col sm="3">
+        <v-col md="3">
           <Card :card="card3" />
         </v-col>
-        <v-col sm="3">
+        <v-col md="3">
           <Card :card="card4" />
         </v-col>
       </v-row>
     </v-container>
 
-    <v-container :class="store.theme ? 'theme' : ''" fluid>
-      <v-row>
-        <v-col md="4">
-          <Chart
-            :infoChart="infoChart2"
-            :chartConfigData="chartConfig.data2"
-            :chartConfigOptions="chartConfig.options"
-          />
-        </v-col>
-        <v-col md="4">
-          <Chart
-            :infoChart="infoChart3"
-            :chartConfigData="chartConfig.data3"
-            :chartConfigOptions="chartConfig.options"
-          />
-        </v-col>
-        <v-col md="4">
-          <Chart
-            :infoChart="infoChart4"
-            :chartConfigData="chartConfig.data4"
-            :chartConfigOptions="chartConfig.options"
-          />
-        </v-col>
-      </v-row>
-    </v-container>
+    <div>
+      <v-container :class="store.theme ? 'theme' : ''" fluid>
+        <v-row>
+          <v-col xl="6">
+            <Chart
+              :infoChart="infoChart2"
+              :chartConfigData="chartConfig.data2"
+              :chartConfigOptions="chartConfig.options"
+            />
+          </v-col>
+          <v-col xl="4">
+            <Chart
+              :infoChart="infoChart3"
+              :chartConfigData="chartConfig.data3"
+              :chartConfigOptions="chartConfig.options"
+            />
+          </v-col>
+          <v-col xl="4">
+            <Chart
+              :infoChart="infoChart4"
+              :chartConfigData="chartConfig.data4"
+              :chartConfigOptions="chartConfig.options"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <Location></Location>
 
-    <v-container :class="store.theme ? 'theme' : ''" style="padding-top: 0" fluid>
+    <!-- <v-container :class="store.theme ? 'theme' : ''" style="padding-top: 0" fluid>
       <v-row>
         <v-col md="12">
-          <Location></Location>
+          <div></div>
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
   </div>
 </template>
 <script setup>

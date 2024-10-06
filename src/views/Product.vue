@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div :class="theme.theme ? 'container-product-page' : 'container-product-page theme-on'">
-      <div v-if="checkApiProductSuccess">
+    <div :class="theme.theme ? '' : 'theme-on'">
+      <div class="container-product-page" v-if="checkApiProductSuccess">
         <h1 class="d-flex align-center">
           <v-btn to="/Ecommerce" variant="outlined" icon="mdi-arrow-left"></v-btn>&nbsp; Détails du
           produit
@@ -23,8 +23,8 @@
     </div>
     <br />
     <br />
-    <div :class="theme.theme ? 'container-product-page' : 'container-product-page theme-on'">
-      <div v-if="checkApiOtherProductSuccess">
+    <div :class="theme.theme ? '' : 'theme-on'">
+      <div class="container-product-page" v-if="checkApiOtherProductSuccess">
         <h1>Autres produits</h1>
         <OtherProducts
           @click-row="callbackClickRow"
