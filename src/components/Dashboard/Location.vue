@@ -2,19 +2,24 @@
   <v-container fluid :class="store.theme ? 'container-chart' : 'container-chart theme-on'">
     <v-row>
       <v-col md="8">
-        <span class="low-text-chart">Ventes mondiales par principaux emplacements</span><br /><br />
-        <h1 class="title-chart">Tous les produits expédiés</h1>
-        <br /><br />
-        <v-table :class="store.theme ? 'container-chart' : 'container-chart theme-on'">
-          <tbody>
-            <tr v-for="item in desserts" :key="item.name">
-              <td style="width: 100px"><country-flag :country="item.country" size="normal" /></td>
-              <td>{{ item.name }}</td>
-              <td>{{ item.number }}</td>
-              <td>{{ item.pourcentage }}</td>
-            </tr>
-          </tbody>
-        </v-table>
+        <div>
+          <span class="low-text-chart">Ventes mondiales par principaux emplacements</span
+          ><br /><br />
+          <h1 class="title-chart">Tous les produits expédiés</h1>
+          <br /><br />
+          <v-table :class="store.theme ? 'container-chart' : 'container-chart theme-on'">
+            <tbody>
+              <tr v-for="item in desserts" :key="item.name">
+                <td style="width: 100px">
+                  <country-flag :country="item.country" size="normal" />
+                </td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.number }}</td>
+                <td>{{ item.pourcentage }}</td>
+              </tr>
+            </tbody>
+          </v-table>
+        </div>
       </v-col>
       <v-col md="4">
         <Pie :data="chartConfig.dataPie" :options="chartConfig.options" />
