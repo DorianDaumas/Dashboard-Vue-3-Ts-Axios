@@ -1,7 +1,7 @@
 <template>
   <v-container fluid :class="store.theme ? 'container-chart' : 'container-chart theme-on'">
     <v-row>
-      <v-col md="8">
+      <v-col cols="12" xl="6" sm="6" md="6" lg="6">
         <div>
           <span class="low-text-chart">Ventes mondiales par principaux emplacements</span
           ><br /><br />
@@ -21,7 +21,7 @@
           </v-table>
         </div>
       </v-col>
-      <v-col md="4">
+      <v-col cols="12" xl="6" sm="6" md="6" lg="6">
         <Pie :data="chartConfig.dataPie" :options="chartConfig.options" />
       </v-col>
     </v-row>

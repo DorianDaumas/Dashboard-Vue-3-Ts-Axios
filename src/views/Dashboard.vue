@@ -14,39 +14,52 @@
 
     <v-container :class="store.theme ? 'theme' : ''" fluid>
       <v-row alignContent="center" justify="space-between">
-        <v-col md="3">
+        <v-spacer></v-spacer>
+
+        <v-col cols="12" xl="3" sm="6" md="4" lg="4">
           <Card :card="card1" />
         </v-col>
-        <v-col md="3">
+        <v-spacer></v-spacer>
+
+        <v-col cols="12" xl="3" sm="6" md="4" lg="4">
           <Card :card="card2" />
         </v-col>
-        <v-col md="3">
+        <v-spacer></v-spacer>
+
+        <v-col cols="12" xl="3" sm="6" md="4" lg="4">
           <Card :card="card3" />
         </v-col>
-        <v-col md="3">
+        <v-spacer></v-spacer>
+
+        <v-col cols="12" xl="3" sm="6" md="4" lg="4">
           <Card :card="card4" />
         </v-col>
+        <v-spacer></v-spacer>
       </v-row>
     </v-container>
 
     <div>
       <v-container :class="store.theme ? 'theme' : ''" fluid>
         <v-row>
-          <v-col xl="6">
+          <v-col cols="12" xl="4" sm="6" md="4" lg="4">
             <Chart
               :infoChart="infoChart2"
               :chartConfigData="chartConfig.data2"
               :chartConfigOptions="chartConfig.options"
             />
           </v-col>
-          <v-col xl="4">
+          <v-spacer></v-spacer>
+
+          <v-col cols="12" xl="4" sm="6" md="4" lg="4">
             <Chart
               :infoChart="infoChart3"
               :chartConfigData="chartConfig.data3"
               :chartConfigOptions="chartConfig.options"
             />
           </v-col>
-          <v-col xl="4">
+          <v-spacer></v-spacer>
+
+          <v-col cols="12" xl="4" sm="6" md="4" lg="4">
             <Chart
               :infoChart="infoChart4"
               :chartConfigData="chartConfig.data4"
