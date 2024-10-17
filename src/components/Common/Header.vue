@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" :class="store.theme ? 'theme-header-off' : 'theme-header-on'">
     <div class="header-navigation">
       <div class="header-container-item-left">
         <v-btn
@@ -13,7 +13,7 @@
         <div class="container-bell">
           <v-menu width="400px" location="bottom right">
             <template v-slot:activator="{ props }">
-              <v-badge :content="59" dot color="orange">
+              <v-badge bottom="calc(100% - 15px)" :content="59" dot color="orange">
                 <v-btn icon="mdi-bell" variant="text" v-bind="props"></v-btn>
               </v-badge>
             </template>
@@ -186,7 +186,9 @@ const items = ref([
 .header {
   /* background: #222d51; */
   width: 100%;
-  height: 80px;
+  height: 60px;
+  position: sticky;
+  top: 0;
   z-index: 9999 !important;
 }
 .header-navigation {

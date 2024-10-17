@@ -10,7 +10,7 @@
       </v-row>
       <v-row v-else>
         <v-col cols="auto" md="3">
-          <Filters style="position: sticky; top: 80px" @category="handleCategory"></Filters>
+          <Filters style="position: sticky; top: 60px" @category="handleCategory"></Filters>
         </v-col>
         <v-col md="9">
           <ProductsList :category="category"></ProductsList>
