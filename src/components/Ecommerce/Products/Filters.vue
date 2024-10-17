@@ -52,10 +52,10 @@
             </v-range-slider>
             <span class="title-filter"> Categories </span>
             <v-list
+              style="max-height: 64vh; overflow: auto"
               density="compact"
               class="list-item-category"
               :class="store.theme ? 'data-table' : 'theme-on'"
-              style="background: #27293d"
               lines="one"
             >
               <v-list-item aria-label="test-reset" @click="changeCategorie('reset')"

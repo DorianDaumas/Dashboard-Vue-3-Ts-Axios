@@ -1,6 +1,6 @@
 <template>
   <v-col v-for="(item, index) in props.userProduct.products" :key="index" md="3">
-    <v-card elevation="0" color="rgb(39, 41, 61)">
+    <v-card :class="store.theme ? 'data-table' : 'theme-on'" elevation="0" color="rgb(39, 41, 61)">
       <v-card-item class="d-flex justify-flex-start align-center">
         <v-card-title class="d-flex align-center">
           <img :src="item.thumbnail" width="100%" alt="images des produits" />
@@ -32,7 +32,9 @@
 import { defineProps } from 'vue'
 import type { userProductType } from '@/components/Profil/userProductType'
 import router from '@/router'
+import { useThemeStore } from '@/stores/App'
 
+const store = useThemeStore()
 const props = defineProps<userProductType>()
 const goToProduct = (item: number) => {
   router.push(`/Product/${item}`)

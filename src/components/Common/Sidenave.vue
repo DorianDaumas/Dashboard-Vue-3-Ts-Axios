@@ -5,7 +5,7 @@
         aria-label="navigation-drawer"
         :permanent="device ? true : false"
         :class="device ? 'sidenav-desktop' : 'sidenav-mobile'"
-        :color="theme ? '#1c9558' : '#1c9558'"
+        :color="theme ? '#1c9558' : 'rgb(39, 41, 61)'"
         v-model="store.drawer"
         temporary
         :rail="!store.drawer"

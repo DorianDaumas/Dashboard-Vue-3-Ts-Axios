@@ -7,6 +7,7 @@
       :items-per-page="itemPerPage"
       :items-length="users.total"
       disable-sort
+      aria-label="test-roles-table"
       hide-default-footer
       :search="search"
     >
@@ -19,6 +20,7 @@
         <v-btn variant="text" icon="mdi-delete-outline" color="white"></v-btn>
         <v-btn
           variant="text"
+          aria-label="test-push-to-user"
           icon="mdi-eye-arrow-right-outline"
           @click="goToUser(value)"
           color="white"
@@ -38,10 +40,11 @@
 import { useUsersStore } from '../stores/Users'
 import { onMounted, ref } from 'vue'
 import { useThemeStore } from '@/stores/App'
-import router from '@/router'
 import Pagination from '@/components/Common/Pagination.vue'
 import { usersSchema, type usersType } from '@/components/Users/usersType'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const goToUser = (username: string) => {
   router.push(`/Users/${username}`)
 }

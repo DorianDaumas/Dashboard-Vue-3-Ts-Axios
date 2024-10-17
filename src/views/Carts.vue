@@ -3,19 +3,24 @@
   <div>
     <v-stepper
       dense
+      aria-label="test-cart-stepper"
       v-if="cartNewSet.length !== 0"
       bg-color="#27293d"
       editable
+      :class="themeStore.theme ? 'theme-off' : 'theme-on'"
       :items="['Détails du panier', 'Informations d\'expéditions', 'Paiement']"
     >
       <template v-slot:item.1>
         <v-container fluid>
           <v-row>
             <v-col md="10">
-              <v-card color="#27293d" flat>
+              <v-card :class="themeStore.theme ? 'theme-off' : 'theme-on'" color="#27293d" flat>
                 <v-card-title primary-title> Article du panier </v-card-title>
                 <v-card-text>
-                  <v-table style="background: #27293d">
+                  <v-table
+                    :class="themeStore.theme ? 'theme-off' : 'theme-on'"
+                    style="background: #27293d"
+                  >
                     <tbody>
                       <tr class="header-table-cart">
                         <th style="text-align: center">PRODUIT</th>
@@ -43,7 +48,6 @@
                         </td>
                         <td style="width: 150px">
                           {{ priceFormat(item!.price) }}
-                          €
                         </td>
                         <td style="text-align: center">
                           <v-btn
@@ -53,7 +57,7 @@
                             @click="removeCartItem(item!.id)"
                             variant="plain"
                             icon="mdi-minus"
-                            color="white"
+                            :color="themeStore.theme ? 'white' : 'black'"
                           >
                             <template v-slot>
                               <v-icon
@@ -77,7 +81,7 @@
                             @click="addToCart(item!)"
                             variant="plain"
                             icon="mdi-plus"
-                            color="white"
+                            :color="themeStore.theme ? 'white' : 'black'"
                           ></v-btn>
                         </td>
                         <td>
@@ -86,7 +90,7 @@
                               item!.price *
                                 cart.filter((cartItem) => cartItem.id === item!.id).length
                             )
-                          }}€
+                          }}
                         </td>
                       </tr>
                     </tbody>
@@ -100,18 +104,29 @@
               <span class="recap-card-title-cart">Récapitulatif de la commande</span>
               <br />
               <br />
-
-              <v-card style="border-radius: 0 !important" color="#1c9558" class="container-flex">
+              <v-card
+                style="border-radius: 0 !important"
+                :color="themeStore.theme ? '#1c9558' : 'white'"
+                class="container-flex"
+              >
                 <v-card-title class="card-title-cart"> Sous-Total </v-card-title>
                 <v-card-title primary-title> {{ priceFormat(totalCart) }} </v-card-title>
               </v-card>
 
-              <v-card style="border-radius: 0 !important" color="#1c9558" class="container-flex">
+              <v-card
+                style="border-radius: 0 !important"
+                :color="themeStore.theme ? '#1c9558' : 'white'"
+                class="container-flex"
+              >
                 <v-card-title class="card-title-cart"> Bon d'achat </v-card-title>
                 <v-card-title primary-title> - 10 % </v-card-title>
               </v-card>
 
-              <v-card style="border-radius: 0 !important" color="#1c9558" class="container-flex">
+              <v-card
+                style="border-radius: 0 !important"
+                :color="themeStore.theme ? '#1c9558' : 'white'"
+                class="container-flex"
+              >
                 <v-card-title class="card-title-cart"> éstimation de livraison </v-card-title>
                 <v-card-title primary-title> 15 J. </v-card-title>
               </v-card>
@@ -131,8 +146,8 @@
 
       <template v-slot:item.2>
         <v-sheet class="mx-auto">
-          <v-form @submit.prevent>
-            <v-container style="background-color: #27293d" class="pt-8">
+          <v-form :class="themeStore.theme ? 'theme-off' : 'theme-on'" @submit.prevent>
+            <v-container class="pt-8">
               <v-text-field
                 disabled
                 label="Nom et prénom"
@@ -223,7 +238,9 @@ import { useAuthenticationStore } from '../stores/Auth'
 import PaymentCard from '@/components/Profil/PaymentCard.vue'
 import TableCart from '@/components/Carts/TableCart.vue'
 import type { ItemLocalStorage } from '@/components/Ecommerce/Products/itemStorage'
+import { useThemeStore } from '../stores/App'
 const userStore = useAuthenticationStore()
+const themeStore = useThemeStore()
 
 const storage = JSON.parse(localStorage.getItem('cart')!)
 const cart = ref<ItemLocalStorage[]>(storage)
@@ -251,17 +268,23 @@ const removeCartItem = (itemId: number) => {
 }
 
 const cartNewSet = computed(() => {
-  return [...new Set(cart.value.map((item) => item.id))].map((id) =>
-    cart.value.find((item) => item.id === id)
-  )
+  if (cart.value) {
+    return [...new Set(cart.value.map((item) => item.id))].map((id) =>
+      cart.value.find((item) => item.id === id)
+    )
+  }
+  return []
 })
 
 const totalCart = computed(() => {
   let totalPrice = 0
-  for (let i = 0; i < cart.value.length; i++) {
-    const price = cart.value[i].price
-    totalPrice += price
+  if (cart.value) {
+    for (let i = 0; i < cart.value.length; i++) {
+      const price = cart.value[i].price
+      totalPrice += price
+    }
   }
+
   return totalPrice
 })
 
