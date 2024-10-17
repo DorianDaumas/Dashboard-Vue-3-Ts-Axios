@@ -114,6 +114,16 @@ onMounted(() => {
   color: black !important;
 }
 
+.theme-header-on {
+  background: rgb(240, 242, 245) !important;
+  color: black !important;
+}
+
+.theme-header-off {
+  background: rgb(30, 30, 47) !important;
+  color: white !important;
+}
+
 .theme-off {
   background: #27293d !important;
   color: white !important;

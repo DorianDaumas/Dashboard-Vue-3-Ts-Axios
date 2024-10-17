@@ -32,7 +32,7 @@
                 priceFormat(
                   item!.price * cart.filter((cartItem) => cartItem.id === item!.id).length
                 )
-              }}€
+              }}
             </td>
           </tr>
           <tr>

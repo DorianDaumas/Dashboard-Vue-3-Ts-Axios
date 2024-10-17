@@ -458,7 +458,7 @@ const goToRoute = (query: any) => {
   background: white !important;
 }
 .sidenav-desktop {
-  top: 80px !important;
+  top: 60px !important;
   left: 25px !important;
   transform: translateX(0) !important;
   height: calc(100% + -110px) !important;
@@ -466,8 +466,8 @@ const goToRoute = (query: any) => {
   border-right: 0;
 }
 .sidenav-mobile {
-  top: 80px !important;
-  height: calc(100% + -80px) !important;
+  top: 60px !important;
+  height: calc(100% + -60px) !important;
   left: 0px !important;
   border-radius: 0px !important;
 }
