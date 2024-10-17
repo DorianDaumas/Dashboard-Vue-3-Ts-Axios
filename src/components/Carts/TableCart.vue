@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/valid-v-slot -->
 <template>
-  <v-card color="#27293d" flat>
+  <v-card :class="themeStore.theme ? 'theme-off' : 'theme-on'" flat>
     <v-card-title primary-title> Article du panier </v-card-title>
     <v-card-text>
-      <v-table style="background: #27293d">
+      <v-table :class="themeStore.theme ? 'theme-off' : 'theme-on'" style="background: #27293d">
         <tbody>
           <tr class="header-table-cart">
             <th style="text-align: center">PRODUIT</th>
@@ -47,6 +47,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ItemLocalStorage } from '../Ecommerce/Products/itemStorage'
+import { useThemeStore } from '@/stores/App'
+
+const themeStore = useThemeStore()
+
 const props = defineProps<{
   cart: ItemLocalStorage[]
 }>()

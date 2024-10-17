@@ -9,7 +9,7 @@
         @click="removeCartItem(productDetail!.id)"
         variant="plain"
         icon="mdi-minus"
-        color="white"
+        :color="themeStore.theme ? 'white' : 'black'"
       >
         <template v-slot>
           <v-icon
@@ -34,7 +34,7 @@
         @click="addToCart(productDetail)"
         variant="plain"
         icon="mdi-plus"
-        color="white"
+        :color="themeStore.theme ? 'white' : 'black'"
       ></v-btn>
     </div>
     <div v-else>
@@ -53,7 +53,9 @@ import { computed, ref } from 'vue'
 import { defineProps } from 'vue'
 import type { ItemLocalStorage } from '../Ecommerce/Products/itemStorage'
 import type { ProductType } from '../Ecommerce/Product/productType'
+import { useThemeStore } from '@/stores/App'
 
+const themeStore = useThemeStore()
 const { productDetail } = defineProps<ProductType>()
 const storage = JSON.parse(localStorage.getItem('cart')!)
 const cart = ref<ItemLocalStorage[]>(storage)

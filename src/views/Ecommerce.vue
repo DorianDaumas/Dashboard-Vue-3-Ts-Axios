@@ -4,6 +4,7 @@
       <v-row v-if="mobile">
         <v-col md="12">
           <Filters @category="handleCategory"></Filters>
+          <br />
           <ProductsList :category="category"></ProductsList>
         </v-col>
       </v-row>

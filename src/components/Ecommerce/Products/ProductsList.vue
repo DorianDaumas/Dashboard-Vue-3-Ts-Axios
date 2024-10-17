@@ -122,7 +122,7 @@
                           aria-label="test-price-standard"
                           :class="store.theme ? 'data-table' : 'theme-on'"
                           class="text-h6"
-                          style="width: 100px"
+                          style="width: 100px; white-space: pre"
                           >{{
                             Intl.NumberFormat('fr-FR', {
                               style: 'currency',

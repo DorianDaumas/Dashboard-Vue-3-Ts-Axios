@@ -75,23 +75,16 @@
       color="red"
     >
       <v-list-item hide-details>
-        <v-switch dense v-model="data4" color="#42b883" class="switch-label" hide-details>
+        <v-switch dense v-model="data7" color="#42b883" class="switch-label" hide-details>
           <template v-slot:label>
-            <span class="switch-label">Nouveaux lancements et projets </span>
+            <span class="switch-label">Alerts produits manquants </span>
           </template></v-switch
         >
       </v-list-item>
       <v-list-item hide-details>
-        <v-switch dense v-model="data5" color="#42b883" class="switch-label" hide-details>
+        <v-switch dense v-model="data8" color="#42b883" class="switch-label" hide-details>
           <template v-slot:label>
-            <span class="switch-label">Mises à jour mensuelles des produits</span>
-          </template></v-switch
-        >
-      </v-list-item>
-      <v-list-item hide-details>
-        <v-switch dense v-model="data6" color="#42b883" class="switch-label" hide-details>
-          <template v-slot:label>
-            <span class="switch-label">Inscription à la newsletter</span>
+            <span class="switch-label">Mises à jour automatiques</span>
           </template></v-switch
         >
       </v-list-item>
@@ -107,6 +100,8 @@ const data3 = ref(true)
 const data4 = ref(false)
 const data5 = ref(true)
 const data6 = ref(false)
+const data7 = ref(false)
+const data8 = ref(true)
 </script>
 <style lang="scss" scoped>
 .list-details .v-input--density-default {
