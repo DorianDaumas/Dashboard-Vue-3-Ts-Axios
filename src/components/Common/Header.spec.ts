@@ -43,7 +43,7 @@ describe('<Header></Header>', () => {
     const showHeader = wrapper.find('.header-container-item')
     expect(showHeader.exists()).toBe(true)
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class="header">
+      "<div class="header theme-header-off">
         <div class="header-navigation">
           <div class="header-container-item-left">
             <v-btn-stub symbol="Symbol(vuetify:v-btn-toggle)" flat="false" icon="mdi-menu-open" block="false" slim="false" stacked="false" ripple="true" border="false" density="default" disabled="false" loading="false" tile="false" replace="false" exact="false" size="default" tag="button" variant="text"></v-btn-stub><span style="margin-left: 15px; font-size: 0.8rem; font-weight: 400;">Home</span>
@@ -81,16 +81,16 @@ describe('<Header></Header>', () => {
     expect(showHeader.exists()).toBe(false)
 
     expect(wrapper.html()).toMatchInlineSnapshot(`
-      "<div class="header">
-        <div class="header-navigation">
-          <div class="header-container-item-left">
-            <v-btn-stub symbol="Symbol(vuetify:v-btn-toggle)" flat="false" icon="mdi-menu-open" block="false" slim="false" stacked="false" ripple="true" border="false" density="default" disabled="false" loading="false" tile="false" replace="false" exact="false" size="default" tag="button" variant="text"></v-btn-stub><span style="margin-left: 15px; font-size: 0.8rem; font-weight: 400;">Home</span>
-          </div>
-          <div class="connexion-btn">
-            <v-btn-stub to="/Authentication" color="#1c9558" symbol="Symbol(vuetify:v-btn-toggle)" flat="false" icon="false" block="false" slim="false" stacked="false" ripple="true" border="false" density="default" disabled="false" loading="false" tile="false" replace="false" exact="false" size="default" tag="button" variant="elevated" outline=""></v-btn-stub>
-          </div>
+    "<div class="header theme-header-off">
+      <div class="header-navigation">
+        <div class="header-container-item-left">
+          <v-btn-stub symbol="Symbol(vuetify:v-btn-toggle)" flat="false" icon="mdi-menu-open" block="false" slim="false" stacked="false" ripple="true" border="false" density="default" disabled="false" loading="false" tile="false" replace="false" exact="false" size="default" tag="button" variant="text"></v-btn-stub><span style="margin-left: 15px; font-size: 0.8rem; font-weight: 400;">Home</span>
         </div>
-      </div>"
-    `)
+        <div class="connexion-btn">
+          <v-btn-stub to="/Authentication" color="#1c9558" symbol="Symbol(vuetify:v-btn-toggle)" flat="false" icon="false" block="false" slim="false" stacked="false" ripple="true" border="false" density="default" disabled="false" loading="false" tile="false" replace="false" exact="false" size="default" tag="button" variant="elevated" outline=""></v-btn-stub>
+        </div>
+      </div>
+    </div>"
+  `)
   })
 })

@@ -9,8 +9,8 @@
             <th style="text-align: center">PRODUIT</th>
             <th></th>
             <th>PRIX</th>
-            <th style="width: 100px">QUANTITé</th>
-            <th>TOtal</th>
+            <th style="width: 100px">QUANTITÉ</th>
+            <th>TOTAL</th>
           </tr>
           <tr v-for="item in cartNewSet" :key="item!.id">
             <td>
@@ -23,7 +23,7 @@
               </v-img>
             </td>
             <td>{{ item!.title }}</td>
-            <td>{{ item!.price }} €</td>
+            <td style="white-space: pre">{{ item!.price }} €</td>
             <td style="text-align: center">
               {{ cart.filter((cartItem) => cartItem.id === item!.id).length }}
             </td>
