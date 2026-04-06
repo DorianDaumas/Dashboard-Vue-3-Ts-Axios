@@ -46,7 +46,7 @@
     "resize-observer-polyfill": "^1.5.1",
     "sass-embedded": "^1.98.0",
     "typescript": "~6.0.2",
-    "vite": "^8.0.2",
+    "vite": "^8.0.5",
     "vitest": "^4.1.1",
     "vue-tsc": "^3.2.6"
   }
