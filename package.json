@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
-    "axios": "^1.13.6",
+    "axios": "^1.15.0",
     "chart.js": "^4.5.1",
     "pinia": "^3.0.4",
     "qalendar": "^3.9.0",
